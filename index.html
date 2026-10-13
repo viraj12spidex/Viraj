@@ -1,0 +1,527 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vimal Raj | Portfolio</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #0b0d12;
+      color: #f5f5f5;
+      line-height: 1.7;
+      transition: 0.3s;
+    }
+
+    header {
+      padding: 20px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #121620;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid #282d3a;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: bold;
+      color: #a99aff;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: #a99aff;
+    }
+
+    button {
+      padding: 9px 13px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background: #a99aff;
+      color: #10111a;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 75px 8%;
+    }
+
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      background:
+        radial-gradient(circle at 80% 20%, #292047, transparent 35%),
+        #0b0d12;
+    }
+
+    .tag {
+      color: #52d8c6;
+      border: 1px solid #343747;
+      padding: 7px 14px;
+      border-radius: 30px;
+      font-size: 13px;
+    }
+
+    h1 {
+      font-size: clamp(45px, 8vw, 85px);
+      line-height: 1.1;
+      margin: 25px 0;
+    }
+
+    .gradient {
+      background: linear-gradient(90deg, #a99aff, #52d8c6);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .intro {
+      max-width: 650px;
+      color: #aab1c1;
+      font-size: 18px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 20px;
+      background: #a99aff;
+      color: #10111a;
+      border-radius: 9px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .btn.secondary {
+      background: #171c28;
+      color: white;
+      border: 1px solid #343747;
+    }
+
+    h2 {
+      font-size: 34px;
+      margin-bottom: 20px;
+    }
+
+    .subtitle {
+      color: #52d8c6;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .muted {
+      color: #aab1c1;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: #121620;
+      border: 1px solid #282d3a;
+      padding: 25px;
+      border-radius: 18px;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: #a99aff;
+    }
+
+    .card h3 {
+      margin: 12px 0;
+    }
+
+    .emoji {
+      font-size: 30px;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+      margin-top: 25px;
+    }
+
+    .skill {
+      display: inline-block;
+      padding: 7px 12px;
+      background: #202536;
+      border-radius: 20px;
+      margin: 5px 4px 0 0;
+      font-size: 13px;
+    }
+
+    .goal {
+      margin: 18px 0;
+    }
+
+    .bar {
+      height: 7px;
+      background: #292d3b;
+      border-radius: 10px;
+      margin-top: 8px;
+      overflow: hidden;
+    }
+
+    .bar span {
+      display: block;
+      height: 100%;
+      background: linear-gradient(90deg, #a99aff, #52d8c6);
+      border-radius: 10px;
+    }
+
+    .contact {
+      text-align: center;
+      background: #121620;
+      border: 1px solid #282d3a;
+      border-radius: 20px;
+      padding: 45px 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #aab1c1;
+      border-top: 1px solid #282d3a;
+    }
+
+    .light-mode {
+      background: #f3f4fa;
+      color: #171827;
+    }
+
+    .light-mode header,
+    .light-mode .card,
+    .light-mode .contact {
+      background: #fff;
+      border-color: #dddfea;
+    }
+
+    .light-mode nav a {
+      color: #171827;
+    }
+
+    .light-mode .hero {
+      background: radial-gradient(circle at 80% 20%, #e4dfff, transparent 40%), #f3f4fa;
+    }
+
+    .light-mode .intro,
+    .light-mode .muted,
+    .light-mode footer {
+      color: #555c70;
+    }
+
+    .light-mode .skill {
+      background: #e5e7f2;
+    }
+
+    .light-mode .btn.secondary {
+      background: #fff;
+      color: #171827;
+    }
+
+    @media (max-width: 750px) {
+      header {
+        padding: 15px 5%;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      nav {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      nav a {
+        margin: 0;
+      }
+
+      section {
+        padding: 55px 5%;
+      }
+
+      .cards,
+      .split {
+        grid-template-columns: 1fr;
+      }
+
+      h2 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">VIMAL.</div>
+
+    <nav>
+      <a href="#about">About</a>
+      <a href="#strengths">Strengths</a>
+      <a href="#journey">Journey</a>
+      <a href="#focus">My Focus</a>
+    </nav>
+
+    <button onclick="toggleTheme()" id="themeButton">
+      ☼ Theme
+    </button>
+  </header>
+
+  <section class="hero" id="home">
+    <span class="tag">Student · Cricketer · Tech Enthusiast</span>
+
+    <h1>Hi, I'm<br>
+      <span class="gradient">Vimal Raj.</span>
+    </h1>
+
+    <p class="intro">
+      I'm a first-year B.Tech CSE Cyber Security student
+      who loves technology, cricket, and creative projects.
+      I'm learning step by step and working toward a future
+      in cloud engineering and cybersecurity.
+    </p>
+
+    <div class="actions">
+      <a href="#about" class="btn">Discover My Story ↘</a>
+      <a href="#journey" class="btn secondary">My Career Goals</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <span class="subtitle">About Me</span>
+    <h2>Still learning. Always growing.</h2>
+
+    <p class="muted">
+      I don't have everything figured out yet. I'm exploring
+      my strengths, learning new skills, and trying to turn
+      my interests into something meaningful.
+    </p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="emoji">🚀</div>
+        <h3>Ambitious</h3>
+        <p class="muted">
+          I have big goals in technology and want to create
+          opportunities through hard work and consistent learning.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="emoji">🧠</div>
+        <h3>Curious Learner</h3>
+        <p class="muted">
+          I ask questions, practise concepts, and want to
+          understand things clearly instead of memorising blindly.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="emoji">🎨</div>
+        <h3>Creative Thinker</h3>
+        <p class="muted">
+          I enjoy content creation, video editing, branding,
+          and exploring new app ideas.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="strengths">
+    <span class="subtitle">My Strengths</span>
+    <h2>Sport, technology & creativity.</h2>
+
+    <div class="split">
+      <div class="card">
+        <div class="emoji">🏏</div>
+        <h3>Cricket</h3>
+        <p class="muted">
+          I've represented Krishnagiri district in cricket
+          and earned third prize in the CM Trophy state competition.
+          Cricket has been an important part of my journey.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="emoji">💡</div>
+        <h3>My Skills & Interests</h3>
+        <p class="muted">
+          I'm exploring technical skills while developing
+          creativity, teamwork, and communication.
+        </p>
+
+        <div>
+          <span class="skill">Python</span>
+          <span class="skill">C Programming</span>
+          <span class="skill">Cybersecurity</span>
+          <span class="skill">Cloud Computing</span>
+          <span class="skill">Content Creation</span>
+          <span class="skill">Cricket</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="journey">
+    <span class="subtitle">My Future</span>
+    <h2>The journey I'm building.</h2>
+
+    <div class="cards">
+      <div class="card">
+        <div class="emoji">🔐</div>
+        <h3>Cybersecurity</h3>
+        <p class="muted">
+          Learn networking, Linux, security fundamentals,
+          and ethical security practices.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="emoji">☁️</div>
+        <h3>Cloud Engineering</h3>
+        <p class="muted">
+          Learn cloud platforms, build small projects,
+          and explore cloud security.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="emoji">💻</div>
+        <h3>Dream Companies</h3>
+        <p class="muted">
+          Work toward the skills needed for opportunities
+          at companies such as Google, Microsoft, Zoho, and NVIDIA.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="focus">
+    <span class="subtitle">Self Improvement</span>
+    <h2>What I'm working on.</h2>
+
+    <div class="split">
+      <div class="card">
+        <h3>My priorities</h3>
+
+        <div class="goal">
+          <strong>Programming fundamentals</strong>
+          <div class="bar"><span style="width: 70%"></span></div>
+        </div>
+
+        <div class="goal">
+          <strong>Networking and Linux</strong>
+          <div class="bar"><span style="width: 40%"></span></div>
+        </div>
+
+        <div class="goal">
+          <strong>Communication confidence</strong>
+          <div class="bar"><span style="width: 45%"></span></div>
+        </div>
+
+        <div class="goal">
+          <strong>Finishing projects</strong>
+          <div class="bar"><span style="width: 50%"></span></div>
+        </div>
+
+        <p class="muted">
+          Note: These bars are illustrative, not measured skill scores.
+          Update them as you make progress.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="emoji">🎯</div>
+        <h3>My Biggest Lesson</h3>
+
+        <p class="muted">
+          My biggest challenge is spreading my attention across
+          too many goals. I want to learn many things, but I know
+          that real progress requires focus, patience, and consistency.
+        </p>
+
+        <br>
+
+        <p class="gradient">
+          Dream big. Focus deeply. Keep building.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="contact">
+      <span class="subtitle">My Journey Starts Here</span>
+      <h2>Building my future, <span class="gradient">one step at a time.</span></h2>
+
+      <p class="muted">
+        I want my skills, discipline, and creativity to speak
+        for themselves. This is only the beginning.
+      </p>
+
+      <br>
+
+      <a href="#home" class="btn">Back to Top ↑</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© <span id="year"></span> Vimal Raj | Built with HTML, CSS & JavaScript</p>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle("light-mode");
+
+      const lightMode =
+        document.body.classList.contains("light-mode");
+
+      document.getElementById("themeButton").textContent =
+        lightMode ? "☾ Theme" : "☼ Theme";
+    }
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>
